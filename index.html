@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
   <title>Para Una Princesa</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
@@ -79,18 +79,17 @@
       letter-spacing: 8px;
     }
     .notepad {
-      background-color: white;
-      opacity: 0.70;
+      background-color: #f9f9f9;
+      opacity: 0.7;
       border: 3px solid #000000;
       padding: 20px;
       border-radius: 20px;
       width: 90%;
       max-width: 500px;
       text-align: left;
-      font-family: 'Indie Flower','Comic Sans MS', sans-serif;
+      font-family: 'Indie Flower','Comic Sans MS', cursive, sans-serif;
       line-height: 1.6;
       box-shadow: 8px 8px 15px rgba(0,0,0,0.2);
-      margin-top: 130px;
     }
     .notepad h3 {
       margin-top: 0;
@@ -128,16 +127,6 @@
       background-color: #ded8d8;
       transform: translateY(-2px);
     }
-
-    /* Media query para móviles */
-    @media (max-width: 480px) {
-      .notepad {
-        width: 95% !important;
-        max-width: 320px !important;
-        padding: 15px !important;
-        margin-top: 100px !important;
-      }
-    }
   </style>
 </head>
 <body>
@@ -169,11 +158,11 @@
 
 <!-- Pantalla de carta -->
 <div id="notepadScreen" class="screen">
-  <div class="notepad" style="text-align: center;">
+  <div class="notepad" style="text-align: center; margin-top: 130px;">
     <img src="Foto2.jpg" 
         alt="Imagen decorativa" 
         class="password-img"
-        style="max-width: 80%; height: auto;">
+        style="max-width: 90%; height: auto;">
     <h3 style="text-align: left; margin-bottom: 0;">📅 10 de Agosto 2025</h3>
     <h4 style="text-align: left; margin-top: 0;">💌 Mi Querida Lu</h4>
     <p style="text-align: justify;">
@@ -207,19 +196,11 @@
       heart.classList.add('heart');
       heart.textContent = '❤';
       heart.style.left = Math.random() * 100 + 'vw';
-
-      const screenWidth = window.innerWidth;
-      if (screenWidth <= 480) {
-        heart.style.fontSize = (Math.random() * 25 + 20) + 'px'; // más grande para móviles
-        heart.style.animationDuration = (Math.random() * 6 + 6) + 's'; // más tiempo en pantalla
-      } else {
-        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-        heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
-      }
-
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
       heartsContainer.appendChild(heart);
-      setTimeout(() => { heart.remove(); }, 12000);
-    }, 400);
+      setTimeout(() => { heart.remove(); }, 8000);
+    }, 500);
   }
 
   function enterDigit(digit) {
