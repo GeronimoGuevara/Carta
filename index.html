@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
   <title>Para Una Princesa</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
@@ -89,6 +89,7 @@
       font-family: 'Indie Flower','Comic Sans MS', cursive, sans-serif;
       line-height: 1.6;
       box-shadow: 8px 8px 15px rgba(0,0,0,0.2);
+      margin-top: 130px;
     }
     .notepad h3 {
       margin-top: 0;
@@ -126,6 +127,16 @@
       background-color: #ded8d8;
       transform: translateY(-2px);
     }
+
+    /* Media query para móviles */
+    @media (max-width: 480px) {
+      .notepad {
+        width: 95% !important;
+        max-width: 320px !important;
+        padding: 15px !important;
+        margin-top: 100px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -157,7 +168,7 @@
 
 <!-- Pantalla de carta -->
 <div id="notepadScreen" class="screen">
-  <div class="notepad" style="text-align: center; margin-top: 130px;">
+  <div class="notepad" style="text-align: center;">
     <img src="Foto2.jpg" 
         alt="Imagen decorativa" 
         class="password-img"
@@ -195,11 +206,19 @@
       heart.classList.add('heart');
       heart.textContent = '❤';
       heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 480) {
+        heart.style.fontSize = (Math.random() * 25 + 20) + 'px'; // más grande para móviles
+        heart.style.animationDuration = (Math.random() * 6 + 6) + 's'; // más tiempo en pantalla
+      } else {
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      }
+
       heartsContainer.appendChild(heart);
-      setTimeout(() => { heart.remove(); }, 8000);
-    }, 500);
+      setTimeout(() => { heart.remove(); }, 12000);
+    }, 400);
   }
 
   function enterDigit(digit) {
