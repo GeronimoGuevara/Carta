@@ -196,12 +196,22 @@
       heart.classList.add('heart');
       heart.textContent = '❤';
       heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+
+      // Detectar ancho de ventana para ajustar tamaño
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 480) {
+        heart.style.fontSize = (Math.random() * 25 + 20) + 'px'; // más grande para móviles
+        heart.style.animationDuration = (Math.random() * 6 + 6) + 's'; // más tiempo en pantalla
+      } else {
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      }
+
       heartsContainer.appendChild(heart);
-      setTimeout(() => { heart.remove(); }, 8000);
-    }, 500);
+      setTimeout(() => { heart.remove(); }, 12000); // dura más para que no desaparezcan rápido
+    }, 400); // un poco más frecuencia para móviles
   }
+
 
   function enterDigit(digit) {
     if (input.length < 4) {
